@@ -1,0 +1,23 @@
+{
+    "name": "hyper-monokai-theme",
+    "version": "1.0.0",
+    "description": "Monokai Theme for Hyper",
+    "main": "index.js",
+    "license": "MIT",
+    "repository": "https://github.com/C0DE-X/hyper-monokai-theme",
+    "author": {
+      "name": "Codex",
+      "email": "binary_codex@hotmail.com"
+    },
+    "files": [
+      "index.js"
+    ],
+    "keywords": [
+      "hyper",
+      "hyper-theme",
+      "hyperterm",
+      "hyperterm-theme",
+      "monokai",
+      "hyper-monokai-theme"
+    ]
+  }
