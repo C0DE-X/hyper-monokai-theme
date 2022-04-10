@@ -24,17 +24,17 @@ exports.decorateConfig = config => Object.assign({}, config, {
 	foregroundColor,
 	borderColor: '#222430',
 	cursorColor: '#FFFF28',
-	cursorAccentColor: backgroundColor,
+	cursorAccentColor: '#232323',
 	selectionColor: 'rgba(151, 151, 155, 0.2)',
 	colors: {
-		black: backgroundColor,
+		black: '#0D0D0D',
 		red: red,
 		green: green,
 		yellow: yellow,
 		blue: blue,
 		magenta: magenta,
 		cyan: cyan,
-		white: 'foregroundColor',
+		white: foregroundColor,
 		lightBlack: '#686868',
 		lightRed: changeColor(red, 4),
 		lightGreen: changeColor(green, 4),
@@ -69,13 +69,15 @@ exports.decorateConfig = config => Object.assign({}, config, {
         }
 
 		/* Fade the title of inactive tabs and the content of inactive panes */
-		.term_fit:not(.term_term) {
+		.tab_text,
+		.term_term {
 			opacity: 0.6;
+			will-change: opacity;
 		}
-		.term_fit.term_active {
+		.tab_active .tab_text,
+		.term_active .term_term {
 			opacity: 1;
 			transition: opacity 0.2s ease-in-out;
-			will-change: opacity;
 		}
 				
 		.xterm-viewport::-webkit-scrollbar-button {
