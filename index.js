@@ -19,6 +19,11 @@ function changeColor(color, amount) { // #FFF not supportet rather use #FFFFFF
     return '#' + fill(red.toString(16)) + fill(green.toString(16)) + fill(blue.toString(16))
 }
 
+const hex2rgba = (hex, alpha = 1) => {
+	const [r, g, b] = hex.match(/\w\w/g).map(x => parseInt(x, 16));
+	return `rgba(${r},${g},${b},${alpha})`;
+  };
+
 exports.decorateConfig = config => Object.assign({}, config, {
 	backgroundColor,
 	foregroundColor,
@@ -28,21 +33,21 @@ exports.decorateConfig = config => Object.assign({}, config, {
 	selectionColor: 'rgba(151, 151, 155, 0.2)',
 	colors: {
 		black: '#0D0D0D',
-		red: red,
-		green: green,
-		yellow: yellow,
-		blue: blue,
-		magenta: magenta,
-		cyan: cyan,
+		red: hex2rgba(red, 0.2),
+		green: hex2rgba(green, 0.2),
+		yellow: hex2rgba(yellow, 0.2),
+		blue: hex2rgba(blue, 0.2),
+		magenta: hex2rgba(magenta, 0.2),
+		cyan: hex2rgba(cyan, 0.2),
 		white: foregroundColor,
 		lightBlack: '#686868',
-		lightRed: changeColor(red, 4),
-		lightGreen: changeColor(green, 4),
-		lightYellow: changeColor(yellow, 4),
-		lightBlue: changeColor(blue, 4),
-		lightMagenta: changeColor(magenta, 4),
-		lightCyan: changeColor(cyan, 4),
-		lightWhite: changeColor(foregroundColor, 4)
+		lightRed: red,
+		lightGreen: green,
+		lightYellow: yellow,
+		lightBlue: blue,
+		lightMagenta: magenta,
+		lightCyan: cyan,
+		lightWhite: foregroundColor,
 	},
 	css: `
 		/* Hide title when only one tab */
